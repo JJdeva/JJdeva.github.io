@@ -1,5 +1,5 @@
-$dark-background-color:       #0e0e0e !default;
-$dark-text-color: #bbb !default;
+$dark-background-color:  #0e0e0e !default; 
+$dark-text-color: #d9d7d7 !default;
 
 html[data-theme="dark"]  {
   &[data-scroll-status='top'] {
@@ -48,18 +48,18 @@ html[data-theme="dark"]  {
   }
 
   .site-header {
-    background-color: #090909;
+    background-color: #ffffff;
 
     .site-brand {
       .site-brand-inner {
         &, &:visited {
-          color: #f8f8f8;
+          color: #000000;
         }
       }
     }
 
     .site-nav .page-link {
-      color: #f8f8f8;
+      color: #000000;
     }
 
     .ct-language-dropdown {
@@ -95,7 +95,7 @@ html[data-theme="dark"]  {
   .page-banner {
     .page-banner-img {
       & > *:first-child {
-        opacity: 0.718;
+        opacity: 0.99;
       }
     }
   }
