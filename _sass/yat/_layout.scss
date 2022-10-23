@@ -779,3 +779,11 @@ html {
   background-color: #e3e3e3e3;
   vertical-align: baseline;
 }
+
+.left-image {
+  height: 100%;
+  max-width: 100%;
+  background-size: auto;
+  background-position: right;
+  overflow: hidden;
+}
