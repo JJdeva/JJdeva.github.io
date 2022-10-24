@@ -1,3 +1,6 @@
+이미지 기본이 auto로 센터정렬 -> 없애버림
+수정하려면 _sass/yat/_layout에서 434줄 img수정할 것
+
 <div align="center">
   <br>
 
