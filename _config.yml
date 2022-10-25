@@ -49,7 +49,7 @@ description: >- # this means to ignore newlines until "baseurl:"
 
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://JJdeva.github.io" # the base hostname & protocol for your site, e.g. https://example.com
-favicon: "./assets/favicon.ico" # the favicon for your site
+favicon: "assets/favicon.ico" # the favicon for your site
 
 # Yat date format
 # refer to https://shopify.github.io/liquid/filters/date/ if you want to customize this
@@ -146,12 +146,12 @@ lang: "ko"  # default lang is en
 
 # If you want to link only specific pages in your header, uncomment
 # this and add the path to the pages in order as they should show up
-# header_pages:
-#   - index.html
-#   - archives.html
-#   - categories.html
-#   - tags.html
-#   - about.md
+header_pages:
+  - index.html
+  - categories.html
+  - archives.html
+  - tags.html
+  # - about.html
 
 # Page default value
 # defaults:
@@ -180,8 +180,8 @@ lang: "ko"  # default lang is en
 # excerpt_size: 350
 
 # Pagination setting
-# paginate: 5
-
+paginate: 10
+paginate_path: "home/page:num/"
 # Disqus comments
 # disqus:
 #   shortname: "Your Disqus username"
@@ -217,3 +217,4 @@ plugins:
   - jekyll-sitemap
   - jekyll-paginate
   - jekyll-spaceship
+

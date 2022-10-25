@@ -11,7 +11,7 @@
   }
 
   li {
-    border-bottom: solid 1px #00000018;
+    
 
     &:last-child {
       border-bottom: none;
@@ -20,12 +20,12 @@
     a {
       display: flex;
       justify-content: space-between;
-      padding: 8px 12px;
+      padding: 4px 12px;
       text-decoration: none;
       font-weight: normal;
       color: $text-color;
       transition: background 0.2s;
-
+      border-bottom: solid 0.5px #00000018;
       &:hover {
         background-color: mix($theme-color, #eaeaea, 20%);
       }

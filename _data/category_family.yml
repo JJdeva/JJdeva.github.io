@@ -1,0 +1,13 @@
+- parent: python
+  child:
+    - pandas
+    - django
+
+- parent: Data
+  child: SQL
+
+- parent: 블로그
+  child: blog
+
+- parent: apple
+  child: macbook

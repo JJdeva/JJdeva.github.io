@@ -6,6 +6,9 @@
   {%- assign field = include.field -%}
 {%- endif -%}
 
+{%- include functions.html func='get_count' -%}
+{% assign family_count = return_count %}
+
 <div class="common-list">
   <ul>
     <li>
@@ -13,13 +16,26 @@
         All<span>{{ site.posts.size }}</span>
       </a>
     </li>
-
-    {% for key in  keys %}
+    {% assign temp = 0 %}
+    {% for family in site.data.category_family %}
+    <li>
+      <a href="{{ url }}#h-{{ family.parent }}">
+        {{ family.parent | capitalize}} <span>{{ return_count | slice: temp}}</span>
+      </a>
+    </li>
+    {% for key in keys %}
+      {% for child in family.child %}
       <li>
-        <a href="{{ url }}#h-{{ key }}">
-          {{ key }} <span>{{ site.posts | where: field, key | size }}</span>
-        </a>
+        {% if key == child %}
+          <a href="{{ url }}#h-{{ key }}">
+            {{"☛&nbsp;"}}{{ key }} <span>{{ site.posts | where: field, key | size }}</span>
+            {{ :sparkles: }}
+          </a>
+        {% endif %}
       </li>
+    {% endfor %}
+    {% endfor %}
+    {% assign temp = temp | plus: 1 %}
     {% endfor %}
   </ul>
 </div>

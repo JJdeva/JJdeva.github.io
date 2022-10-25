@@ -4,5 +4,12 @@ heading: 'Your awesome heading'
 subheading: 'Your awesome subheading'
 banner: 'default'
 ---
+{%- include functions.html func='get_categories' -%}
+{% assign categories = return %}
+{% assign keys = categories %}
+{% assign field = 'categories' %}
 
+<!-- {{ categories }} -->
+<!-- {{ keys }} -->
+<!-- {{ field }} -->
 {{ content }}

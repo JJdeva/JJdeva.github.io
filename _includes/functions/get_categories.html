@@ -1,12 +1,39 @@
-{% assign split_mark = '<|>' %}
-
-{% assign categories = '' %}
-{% for category in site.categories %}
-  {% assign name = category | first %}
-  {% assign categories = categories | append: split_mark  | append: name %}
+<!--사용자 지정 카테고리 리스트-->
+{% assign lists = '' %}
+{% for element in site.data.category_list %}
+  {% assign lists = lists | append: element | append: ',' %}
 {% endfor %}
 
-{% assign return = categories
-  | remove_first: split_mark
-  | split: split_mark
-  | sort: self %}
+
+<!--카테고리 정렬 모드 (auto|custom)-->
+{% assign selec = "custom" %}
+
+{% assign split_mark = '<|>' %}
+{% case selec %}
+   <!--자동정렬 : auto-->
+  {% when "auto" %}
+    <!--자동정렬 : auto-->
+    {% assign categories = '' %}
+    {% for category in site.categories %}
+      {% assign name = category | first %}
+      {% assign categories = categories | append: split_mark  | append: name %}
+    {% endfor %}
+
+    {% assign return = categories
+      | remove_first: split_mark
+      | split: split_mark
+      | sort: self %}
+  
+  <!--custom정렬 : custom-->
+  {% when "custom" %}
+    {% assign lists = lists | split: ',' %}
+    {% assign categories = '' %}
+
+    {% for category in lists %}
+      {% assign name = category %}
+      {% assign categories = categories | append: split_mark | append: name %}
+    {% endfor %}
+    {% assign return = categories
+      | remove_first: split_mark
+      | split: split_mark %}
+{% endcase %}

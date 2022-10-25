@@ -1,0 +1,13 @@
+{% assign counter_list = '' %}
+{% assign field = 'categories' %}
+
+{% for family in  site.data.category_family %}
+    {% assign count = 0 %}
+    {% for child in family.child %}
+        {% assign temp = site.posts | where: field, child | size %}
+        {% assign count = count | plus: temp %}
+    {% endfor %}
+    {% assign counter_list = counter_list | append: count %}
+{% endfor %}
+
+{% assign return_count = counter_list %}
