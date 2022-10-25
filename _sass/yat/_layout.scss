@@ -713,8 +713,9 @@ html {
  */
 .page-segments {
   .page-segments-list {
-    margin-left: 15px;
+    margin-left: 5px;
     list-style: none;
+
   }
 
 
@@ -727,7 +728,7 @@ html {
 
     &:not(:first-child) {
       margin-top: 5px;
-      margin-left: 15px;
+      margin-left: 5px;
     }
 
     &:hover:before {
