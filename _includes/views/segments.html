@@ -10,19 +10,24 @@
   {%- assign mybool = include.mybool -%}
 {%- endif -%}
 
+{%- if include.mytag -%}
+  {%- assign mytag = include.mytag -%}
+{%- endif -%}
+
 {% if mybool == "true" %}
 <div class="page-segments">
   <h1 style="font-weight:800;font-size:2.5em;">Category</h1>
   {% for family in site.data.category_family %}
-  <ul class="page-segments-list">
+  <ul class="page-segments-list" style="margin-bottom:20px;">
       <p id="{{ family.parent }}" class="segment-name" 
-      style="font-size:2.0em;margin-bottom:1px;margin-top:1px;border-bottom: 1px solid 
-      #c2d9ff;border-top: 1px solid 
-      #c2d9ff;">{{ family.parent | capitalize }}</p>
+      style="font-size:2.0em;margin-bottom:1px;margin-top:1px;padding-top:5px;border-bottom: 2px double
+      #c2d9ff;border-top: 2px double 
+      #c2d9ff;width:70%;">{{ family.parent | capitalize }}</p>
       {% for key in keys %}
         {% for child in family.child %}
           {% if key == child %}
-            <h2 id="{{ key }}" class="segment-name">{{ key }}</h2>
+            <h2 id="{{ key }}" class="segment-name" style="border-bottom: 1px dashed 
+            #c2d9ff;width:68%">{{"🌱"}}{{ key }}</h2>
               {% assign items = site.posts | where: field, key %}
               {% for item in items %}
                 {% if item != nil %}
@@ -37,9 +42,13 @@
   {% endfor %}
 </div>
 
-{% else %}
+{% elsif mybool != "true" %}
 <div class="page-segments">
   <ul class="page-segments-list">
+    {% if mytag == "mytag" %}
+      <h1 style="font-size:2.0em;font-weight:800;margin-bottom:15px;border-bottom: 1px solid 
+      #c2d9ff;">{{ "Tags" }}</h1>
+    {% endif %}
     {% for key in keys %}
     <h2 id="{{ key }}" class="segment-name">{{ key }}</h2>
       {% assign items = site.posts | where: field, key %}
@@ -51,4 +60,5 @@
     {% endfor %}
   </ul>
 </div>
+
 {% endif %}

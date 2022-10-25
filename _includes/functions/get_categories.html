@@ -1,9 +1,13 @@
 <!--사용자 지정 카테고리 리스트-->
 {% assign lists = '' %}
-{% for element in site.data.category_list %}
+<!-- {% for element in site.data.category_list %}
   {% assign lists = lists | append: element | append: ',' %}
+{% endfor %} -->
+{% for family in site.data.category_family %}
+  {% for element in family.child %}
+    {% assign lists = lists | append: element | append: ',' %}
+  {% endfor %}
 {% endfor %}
-
 
 <!--카테고리 정렬 모드 (auto|custom)-->
 {% assign selec = "custom" %}

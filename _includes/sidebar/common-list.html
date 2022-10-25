@@ -25,14 +25,13 @@
     </li>
     {% for key in keys %}
       {% for child in family.child %}
+      {% if key == child %}
       <li>
-        {% if key == child %}
           <a href="{{ url }}#h-{{ key }}">
-            {{"☛&nbsp;"}}{{ key }} <span>{{ site.posts | where: field, key | size }}</span>
-            {{ :sparkles: }}
+            {{"🍀&nbsp;"}}{{ key }} <span>{{ site.posts | where: field, key | size }}</span>
           </a>
-        {% endif %}
       </li>
+      {% endif %}
     {% endfor %}
     {% endfor %}
     {% assign temp = temp | plus: 1 %}
